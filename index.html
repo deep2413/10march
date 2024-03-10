@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;   
+        }
+        .container{
+            background-color: lightseagreen;
+            border-radius: 5%;
+            width: 500px;
+            height: 630px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(0%, 5%);
+        }
+        .card{
+            background-color: white;
+            border-radius: 5%;
+            width: 260px;
+            height: 500px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .card img{
+            height: 400px;
+            width: 250px;
+            margin:5px;
+            border-radius: 5%;
+            object-fit: cover;
+        }
+        .card i{
+            font-size: 88px;
+            color: white;
+            position:absolute;
+            top: 35%;
+            left: 35%;
+            opacity: 0;
+            transform: scale(0);
+            transition: transform ease .3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img id="img1" src="https://images.unsplash.com/photo-1709428730946-0216f94179fc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D">
+            <i class="ri-heart-3-fill"></i>
+            <div style=" display: flex; justify-content: center;">
+               
+                <h1 id="like" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">0 Like</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+var a = document.querySelector("#img1");
+var love = document.querySelector("i");
+
+var like = document.querySelector("#like");
+var flag = 0;
+
+a.addEventListener("dblclick", function(){
+    if(flag == 0){
+        
+    like.innerHTML = "1 Liked";
+    love.style.transform = "scale(1)";
+    love.style.opacity = 0.8
+
+     setTimeout(() => {
+        love.style.transform = "scale(0)";
+        love.style.opacity = 0;
+     }, 1000);
+
+    flag = 1;
+
+    }else{
+        like.innerHTML = "0 Like";
+        flag = 0;
+    }
+
+})
+    </script>
+</body>
+</html>
